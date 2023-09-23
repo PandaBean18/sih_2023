@@ -1,0 +1,325 @@
+* {
+    margin: 0;
+    padding : 0;
+    box-sizing:border-box;
+    font-family: 'Poppins',sans-serif;
+    
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('background1.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.LOGO{
+    font-size: 2.5em;
+    color: cornsilk;
+    user-select: none;
+    background-color: rgba(250, 235, 215, 0.37);
+    border: antiquewhite;
+    border-radius: 15px;
+    padding: 5px;
+    letter-spacing: 5px;
+}
+
+.navigation a{
+    font-size: 1.2em;
+    color: cornsilk;
+    user-select: none;
+    font-weight: 500;
+    margin-left: 50px;
+    text-decoration: none;
+}
+
+.navigation .btn-login{
+    width: 120px;
+    height: 60px;
+    background: transparent;
+    border: 2px solid #fff;
+    color: white;
+    font-weight: 500;
+    margin-left: 40px;
+    outline: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: 0.5s;
+}
+
+
+.navigation .btn-login:hover{
+    background: white;
+    color:rgb(7, 0, 0);
+}
+
+.wrapper1 {
+
+    position: relative;
+    width: 2000px;
+    height: 500px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 15px;
+    backdrop-filter: blur(40px);
+    box-shadow: 0 0 30px black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.wrapper1 .form-box {
+    width: 100%;
+    padding: 40px;
+}
+
+.form-box h2{
+    font-size: 2em;
+    color:#162938;
+    text-align:center;
+    margin-bottom: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+    letter-spacing: 2px;
+    
+
+}
+
+.input-box1{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #162938;
+    margin: 35px 0;
+}
+
+.input-box1 label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #162938;
+    font-weight: 500;
+    pointer-events: none;
+    transition:0.5s;
+}
+
+.input-box1 input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #162938;
+    font-weight: 600;
+    padding: 0 35px 0 5px;
+}
+
+.input-box1 .icon{
+    position: absolute;
+    right: 8px;
+    font-size: 1.3em;
+    color: #162938;
+    line-height: 57px;
+}
+
+.input-box1 input:focus~label,
+.input-box1 input:valid~label{
+    top: -5px;
+}
+
+.remember-forgot{
+    color: #162938;
+    font-weight: 500;
+    margin: 20px 0 20px;
+    display: flex;
+    justify-content: space-between;
+    display: none;
+}
+
+
+.btn {
+    width: 100%;
+    height: 45px;
+    background: #162938;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.2em;
+    color: #fff;
+    font-weight: 500;
+    margin-top: 20px;
+
+}
+
+.login-register{
+    font-size: 1.1em;
+    color: #162938;
+    text-align: center;
+    font-weight: 500;
+    margin: 30px 0 10px;
+    display: flex;
+}
+
+.input-box2{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #162938;
+    margin: 35px 0;
+}
+
+.input-box2 label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #162938;
+    font-weight: 500;
+    pointer-events: none;
+    transition:0.5s;
+}
+
+.input-box2 input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #162938;
+    font-weight: 600;
+    padding: 0 35px 0 5px;
+}
+
+.input-box2 .icon{
+    position: absolute;
+    right: 8px;
+    font-size: 1.3em;
+    color: #162938;
+    line-height: 57px;
+}
+
+.input-box2 input:focus~label,
+.input-box2 input:valid~label{
+    top: -5px;
+}
+
+.input-box3{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #162938;
+    margin: 35px 0;
+}
+
+.input-box3 label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #162938;
+    font-weight: 500;
+    pointer-events: none;
+    transition:0.5s;
+}
+
+.input-box3 input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #162938;
+    font-weight: 600;
+    padding: 0 35px 0 5px;
+}
+
+.input-box3 .icon{
+    position: absolute;
+    right: 8px;
+    font-size: 1.3em;
+    color: #162938;
+    line-height: 57px;
+}
+
+.input-box3 input:focus~label,
+.input-box3 input:valid~label{
+    top: -5px;
+}
+
+.input-box4{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #162938;
+    margin: 35px 0;
+}
+
+.input-box4 label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #162938;
+    font-weight: 500;
+    pointer-events: none;
+    transition:0.5s;
+}
+
+.input-box4 input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #162938;
+    font-weight: 600;
+    padding: 0 35px 0 5px;
+}
+
+.input-box4 .icon{
+    position: absolute;
+    right: 8px;
+    font-size: 1.3em;
+    color: #162938;
+    line-height: 57px;
+}
+
+.input-box4 input:focus~label,
+.input-box4 input:valid~label{
+    top: -5px;
+}
+
+.login-register2{
+    font-size: 1.1em;
+    color: #162938;
+    text-align: center;
+    font-weight: 500;
+    margin: 30px 0 10px;
+    display: flex;
+}

@@ -83,7 +83,7 @@ class User:
             );""", (self.username, self.password_digest.decode('utf-8'), self.mail, self.phone, self.user_type, self.session_token))
             connection.commit()
             connection.close()
-            return True 
+            return User.create_user_object([self.username, self.password_digest.decode('utf-8'),  self.mail, self.phone, self.user_type, self.session_token]) 
         else:
             return False
 
@@ -126,7 +126,4 @@ class User:
     
     def __generate_session_token(self):
         return secrets.token_urlsafe(16)
-    
-# User('Raghap', 'password', 'raghapb34n@gmail.com', '9315755933', 'educator').create()
-# print(User.find('Raghap').check_password('passworrd'))
-print(User.find_by_session_token('TOhJHGI_LF7sFoliAg88HQ'))
+
