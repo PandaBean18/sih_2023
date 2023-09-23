@@ -104,6 +104,15 @@ class User:
     
     def check_password(self, password):
         return bcrypt.checkpw(bytes(password, 'utf-8'), self.password_digest)
+    
+    def reset_session_token(self):
+        self.session_token = self.__generate_session_token()
+        connection = psycopg2.connect('dbname=sih_2023')
+        cursor = connection.cursor()
+        cursor.execute('UPDATE users SET session_token = \'{}\' WHERE username = \'{}\''.format(self.session_token, self.username))
+        connection.commit()
+        connection.close()
+        return self.session_token
 
     # private
 
