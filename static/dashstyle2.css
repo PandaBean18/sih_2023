@@ -1,5 +1,5 @@
 body{
-    background: url('finalbackground.jpeg') repeat-x;
+    background-image: url('finalbackground.jpeg');
     background-size: contain;
     background-position: top;
 }
@@ -194,7 +194,6 @@ body{
 
 
 footer{
-  position:;
   background: #140B5C;
   width: 100%;
   bottom: 0;

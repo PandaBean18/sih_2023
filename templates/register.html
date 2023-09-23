@@ -6,7 +6,7 @@
     <meta charset = "UTF-8">
     <meta http-equiv = "X-UA-COMPATIBLE" content = "IE=edge">
     <meta name = "viewport" content = "width = device-width,initial-scale=1.0">
-    <link rel = "stylesheet" href="registerstyle.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='registerstyle.css') }}" />
     <link href="Poppins.css" rel="stylesheet" type="text/css">
 
 </head>
@@ -14,48 +14,48 @@
 <body>
     <header>
         <h2 class="LOGO">AICTE</h1>
-        <img src="aictefull-removebg-preview.png"></img>
+        <img src="{{ url_for('static', filename='aictefull-removebg-preview.png') }}"></img>
         <nav class = "navigation">
             <a href = "#">HOME</a>
             <a href = "#">INFO PAGE</a>
-            <button class="btn-login">LOGIN</button>
+            <a href="/login"><button class="btn-login">LOGIN</button></a>
         </nav>
     </header>
 <div class="wrapper1">
     <div class="form-box">
         <h2>REGISTER</h2>
-        <form action="#">
+        <form action="/users/new" method="post">
             <div class="input-box1">
                 <span class="icon"><ion-icon name="person-add-outline"></ion-icon></span>
                 
-                <input type="text" required>
+                <input type="text" required name="user[username]">
                 <label>Username</label>
 
             </div>
             <div class="input-box2">
                 <span class="icon"><ion-icon name="phone-portrait-outline"></ion-icon></span>
                 
-                <input type="number" required>
-                <label>Phone Number / Aadhar no.</label>
+                <input type="number" required name="user[phone]">
+                <label>Phone Number</label>
 
             </div>
             <div class="input-box3">
                 <span class="icon"><ion-icon name="mail-open-outline"></ion-icon></span>
                 
-                <input type="email" required>
+                <input type="email" required name="user[mail]">
                 <label>Email id</label>
 
             </div>
             <div class="input-box4">
                 <span class="icon"><ion-icon name="lock-open-outline"></ion-icon></span>
-                <input type="password" required>
+                <input type="password" required name="user[password]">
                 <label>Password</label>
             </div>
             <div class="login-register2">
                 <label for="cars">Choose type of user  : </label>
-                <select name="cars" id="cars">
-                    <option value="volvo"> Educator</option>
-                    <option value="saab"> Curriculum designer</option>
+                <select name="user[type]">
+                    <option value="educator"> Educator</option>
+                    <option value="designer"> Curriculum designer</option>
                     
                 </select>
                 <br><br>
@@ -66,7 +66,7 @@
             <button type="submit" class="btn">Register</button>
             <div class="login-register">
                 <br></br>
-                <p>Already have an account ? <a href="#file:///E:/SIH%20frontend/index2.html#" class="register-link">Login</a></p>
+                <p>Already have an account ? <a href="/login" class="register-link">Login</a></p>
             </div>
         </form>
 

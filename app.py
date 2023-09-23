@@ -22,9 +22,9 @@ def current_user():
 def home():
     user = current_user()
     if user:
-        return "{} {} {}".format(user.username, user.mail, user.phone)
+        return render_template('dashboard2.html', user=user)
     else:
-        return redirect("/login")
+        return redirect("/login/")
     
 @app.route("/register/")
 def register():
@@ -51,7 +51,7 @@ def new():
     else:
         return redirect('/')
     
-@app.route("/login", methods=['GET', 'POST'])
+@app.route("/login/", methods=['GET', 'POST'])
 def login():
     if not current_user(): 
         if request.method == 'GET':
@@ -64,7 +64,7 @@ def login():
                 session['session_token'] = user.reset_session_token()
                 return redirect('/')
             else: 
-                return redirect('/login')
+                return redirect('/login/')
     else: 
         return redirect("/")
 
