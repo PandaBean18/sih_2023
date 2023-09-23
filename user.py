@@ -127,3 +127,4 @@ class User:
     def __generate_session_token(self):
         return secrets.token_urlsafe(16)
 
+# User('Raghap', 'Password', 'raghapb34n@gmail.com', '9315755933', 'educator').create()

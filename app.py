@@ -21,12 +21,17 @@ def current_user():
 @app.route('/')
 def home():
     user = current_user()
-    
-    return "{} {} {}".format(user.username, user.mail, user.phone)
+    if user:
+        return "{} {} {}".format(user.username, user.mail, user.phone)
+    else:
+        return redirect("/login")
     
 @app.route("/register/")
 def register():
-    return render_template('register.html')
+    if not current_user():
+        return render_template('register.html')
+    else: 
+        return redirect("/")
 
 @app.route("/users/new", methods=['POST'])
 def new():
@@ -43,4 +48,32 @@ def new():
             return redirect('/')
         else: 
             return redirect('/register')
+    else:
+        return redirect('/')
+    
+@app.route("/login", methods=['GET', 'POST'])
+def login():
+    if not current_user(): 
+        if request.method == 'GET':
+            return render_template('index2.html')
+        else: 
+            mail = request.form['user[mail]']
+            password = request.form['user[password]']
+            user = User.find_by_credentials(mail, password)
+            if user: 
+                session['session_token'] = user.reset_session_token()
+                return redirect('/')
+            else: 
+                return redirect('/login')
+    else: 
+        return redirect("/")
+
+@app.route("/logout", methods=['GET'])
+def logout():
+    user = current_user()
+    if user:
+        user.reset_session_token()
+        return redirect('/login')
+    else:
+        return redirect('/login')
 
