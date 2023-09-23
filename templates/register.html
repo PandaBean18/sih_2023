@@ -6,7 +6,7 @@
     <meta charset = "UTF-8">
     <meta http-equiv = "X-UA-COMPATIBLE" content = "IE=edge">
     <meta name = "viewport" content = "width = device-width,initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='registerstyle.css') }}" />
+    <link rel = "stylesheet" href="registerstyle.css">
     <link href="Poppins.css" rel="stylesheet" type="text/css">
 
 </head>
@@ -14,6 +14,7 @@
 <body>
     <header>
         <h2 class="LOGO">AICTE</h1>
+        <img src="aictefull-removebg-preview.png"></img>
         <nav class = "navigation">
             <a href = "#">HOME</a>
             <a href = "#">INFO PAGE</a>
@@ -23,38 +24,38 @@
 <div class="wrapper1">
     <div class="form-box">
         <h2>REGISTER</h2>
-        <form action="/users/new" method="post">
+        <form action="#">
             <div class="input-box1">
                 <span class="icon"><ion-icon name="person-add-outline"></ion-icon></span>
                 
-                <input type="text" required name="user[username]">
+                <input type="text" required>
                 <label>Username</label>
 
             </div>
             <div class="input-box2">
                 <span class="icon"><ion-icon name="phone-portrait-outline"></ion-icon></span>
                 
-                <input type="number" required name="user[phone]">
+                <input type="number" required>
                 <label>Phone Number / Aadhar no.</label>
 
             </div>
             <div class="input-box3">
                 <span class="icon"><ion-icon name="mail-open-outline"></ion-icon></span>
                 
-                <input type="email" required name="user[mail]">
+                <input type="email" required>
                 <label>Email id</label>
 
             </div>
             <div class="input-box4">
                 <span class="icon"><ion-icon name="lock-open-outline"></ion-icon></span>
-                <input type="password" required name="user[password]">
+                <input type="password" required>
                 <label>Password</label>
             </div>
             <div class="login-register2">
                 <label for="cars">Choose type of user  : </label>
-                <select name="user[type]" id="cars">
-                    <option value="educator"> Educator</option>
-                    <option value="designer"> Curriculum designer</option>
+                <select name="cars" id="cars">
+                    <option value="volvo"> Educator</option>
+                    <option value="saab"> Curriculum designer</option>
                     
                 </select>
                 <br><br>
