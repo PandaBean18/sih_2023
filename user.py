@@ -1,6 +1,7 @@
 import psycopg2
 import bcrypt
 import secrets
+from admin import Admin
 
 class User:
     def create_user_object(result):
@@ -20,8 +21,11 @@ class User:
 
         if not result:
             return False 
-        
-        return User.create_user_object(result[0])
+
+        if result[0][4] == 'admin':
+            return Admin.create_admin_object(result[0])
+        else:
+            return User.create_user_object(result[0])
 
     def find_by_credentials(email, password):
         connection = psycopg2.connect('dbname=sih_2023')
@@ -97,8 +101,9 @@ class User:
         elif len(self.password) < 6:
             self.errors.append('Password is too short.')
             return False 
-        elif not self.__ensure_unique_username():
-            self.errors.append('Username already taken.')
+        elif self.type not in ['educator', 'designer', 'admin']:
+            self.errors.append('Invalid user type.')
+            return False 
 
         return True
     
@@ -120,9 +125,6 @@ class User:
         b_password = bytes(self.password, 'utf-8')
         hashed_password = bcrypt.hashpw(b_password, bcrypt.gensalt())
         return hashed_password
-    
-    def __ensure_unique_username(self):
-        return True
     
     def __generate_session_token(self):
         return secrets.token_urlsafe(16)
