@@ -76,4 +76,12 @@ def logout():
         return redirect('/login')
     else:
         return redirect('/login')
+    
+@app.route("/user/profile", methods=['GET'])
+def user_show():
+    user = current_user()
+    if user: 
+        return render_template('Profilepage.html', user=user)
+    else:
+        return redirect('/login')
 
