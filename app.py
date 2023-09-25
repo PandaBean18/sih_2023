@@ -22,7 +22,11 @@ def current_user():
 def home():
     user = current_user()
     if user:
-        return render_template('dashboard2.html', user=user)
+        if user.user_type == 'admin':
+            users = user.users()
+            return render_template('admindashboard.html', user=user, users=users)
+
+        return render_template('Untitled-1.html', user=user)
     else:
         return redirect("/login/")
     
@@ -40,7 +44,7 @@ def new():
         password = request.form['user[password]']
         mail = request.form['user[mail]']
         phone = request.form['user[phone]']
-        user_type = request.form['user[type]']
+        user_type = 'educator'
         user = User(username, password, mail, phone, user_type).create()
 
         if user:
@@ -77,11 +81,43 @@ def logout():
     else:
         return redirect('/login')
     
-@app.route("/user/profile", methods=['GET'])
-def user_show():
+@app.route("/user/<username>", methods=['GET'])
+def user_show(username):
     user = current_user()
     if user: 
-        return render_template('Profilepage.html', user=user)
+        if username == 'profile':
+            return render_template('Profilepage.html', user=user)
+        elif user.user_type == 'admin':
+            user = user.find_by_username(username)
+            if user:
+                return render_template('user_show.html', user=user)
+            else: 
+                return redirect('/')
     else:
         return redirect('/login')
 
+@app.route("/search", methods=['POST'])
+def search():
+    user = current_user()
+    if user.user_type != 'admin':
+        return redirect('/')
+    else: 
+        username = request.form['search']
+        return redirect('/user/{}'.format(username))
+
+@app.route('/user/<session_token>/destroy', methods=['POST'])
+def destroy_user(session_token):
+    user = current_user()
+    if user.user_type == 'admin':
+        user.delete_user(session_token)
+        
+    return redirect('/')
+    
+@app.route('/user/<session_token>/change_privilege', methods=['POST'])
+def change_privilege(session_token):
+    user = current_user()
+    if user.user_type == 'admin':
+        user.change_user_privilege(session_token)
+
+
+    return redirect('/')

@@ -4,7 +4,7 @@
   padding: 0;
   box-sizing: 0;
   font-family: 'Poppins',sans-serif;
-  
+
 }
 body{
   background-color: #0f2b3e;
@@ -15,7 +15,7 @@ body{
   top: 0;
   left: 0;
   width: 100%;
-  padding: 20px 10%;
+  padding: 10px;
   background: #04192842;;
   display: flex;
   justify-content: space-between;
@@ -40,6 +40,7 @@ body{
 
 .home{
   display: flex;
+  justify-content: space-around;
   align-items: center;
   background: url('https://arminschieb.com/wp-content/uploads/india_from_space.jpg') no-repeat;
   background-size: cover;
@@ -47,8 +48,32 @@ body{
   height: 100vh;
   padding: 0 10%;
 }
+
+.searchbox {
+    display: inline-block;
+}
+
+.search-button {
+    float: right;
+    width: 100px;
+    height: 40px;
+}
+
+.searchbox input {
+    float: left;
+    width: 300px;
+    height: 40px;
+}
+
+.autocomplete-items {
+    background-color: white;
+}
+
+.autocomplete-active {
+    background-color: grey;
+}
 .home-content{
- 
+
   max-width: 300px;
 }
 
@@ -71,11 +96,11 @@ body{
   display: flex;
   justify-content: space-between;
   margin-top: 40px;
-  
+
 }
 
 .btn-box a{
-  
+
   display: inline-block;
   width: 150px;
   height: 100%;
@@ -89,14 +114,14 @@ body{
   letter-spacing: 1px;
   display: inline-flex;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
   transition: 0.5s;
 }
 
 .btn-box .log{
   background: transparent;
   color: #00abf0;
-  
+
 }
 
 .btn-box a:hover{
@@ -131,7 +156,7 @@ body{
     position: relative;
     max-width: 80%;
     margin: 0 auto 50px;
-  
+
 
   }
 
@@ -186,25 +211,25 @@ body{
 .l-bg-cherry {
     background: linear-gradient(to right, #493240, #f09) !important;
     color: #fff;
-    
+
 }
 
 .l-bg-blue-dark {
     background: linear-gradient(to right, #373b44, #4286f4) !important;
     color: #fff;
-   
+
 }
 
 .l-bg-green-dark {
     background: linear-gradient(to right, #0a504a, #38ef7d) !important;
     color: #fff;
-   
+
 }
 
 .l-bg-orange-dark {
     background: linear-gradient(to right, #a86008, #ffba56) !important;
     color: #fff;
-   
+
 }
 
 .card .card-statistic-3 .card-icon-large .fas, .card .card-statistic-3 .card-icon-large .far, .card .card-statistic-3 .card-icon-large .fab, .card .card-statistic-3 .card-icon-large .fal {
